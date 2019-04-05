@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import LandingPage from 'components/landing-page'
-import Header from 'components/header'
-import {refreshAuthToken} from 'actions/auth'
+import LandingPage from './components/landing-page'
+import Header from './components/header'
+import {refreshAuthToken} from './actions/auth'
 
 export class App extends React.Component {
   
