@@ -1,7 +1,7 @@
 import React from 'react'
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form'
-import { connect } from 'tls';
-const  { DOM: { input, select, textarea } } = React
+import { connect } from 'react-redux';
+
 const workoutTypes = [      //sample workout types, will be user defined and pulled from database
     {
         type: 'Cardio',
@@ -17,24 +17,18 @@ const workoutTypes = [      //sample workout types, will be user defined and pul
     }
 ]
 
-export class CurrentWorkoutForm extends React.Component {
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                <Field component={select}>
-                    {workoutTypes.map((workout, index) => {
-                        return <option value={workoutTypes[index].exercises}></option>
-                    })}
-                </Field>
-                </form>
-            </div>
-        )
-    }
+export default function CurrentWorkoutForm() {
+
+    return (
+        <div>
+            <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+            <Field component='select'>
+                {workoutTypes.map((workout, index) => {
+                    return <option value={workoutTypes[index].exercises}></option>
+                })}
+            </Field>
+            </form>
+        </div>
+    )
+    
 }
-
-const mapStateToProps = state => ({
-
-})
-
-export default connect(mapStateToProps)(CurrentWorkoutForm)
