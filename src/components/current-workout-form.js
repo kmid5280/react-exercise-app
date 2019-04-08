@@ -21,7 +21,13 @@ export class CurrentWorkoutForm extends React.Component {
     render() {
         return (
             <div>
-                
+                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+                <Field component={select}>
+                    {workoutTypes.map((workout, index) => {
+                        return <option value={workoutTypes[index].exercises}></option>
+                    })}
+                </Field>
+                </form>
             </div>
         )
     }
