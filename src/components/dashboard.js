@@ -4,10 +4,16 @@ import {connect} from 'react-redux'
 import {logout} from '../actions/auth'
 import CurrentWorkoutForm from './current-workout-form'
 import PastWorkouts from './past-workouts'
+import {Redirect} from 'react-router-dom'
 
 
 export class Dashboard extends React.Component {
+
+
     render() {
+        if (!this.props.loggedIn) {
+            return <Redirect to='/' />
+        }
         return (
             <div>
                 <h1>Dashboard placeholder</h1>
