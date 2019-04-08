@@ -2,12 +2,17 @@ import React from 'react'
 import requiresLogin from './requires-login';
 import {connect} from 'react-redux'
 import {logout} from '../actions/auth'
+import CurrentWorkoutForm from './current-workout-form'
+import PastWorkouts from './past-workouts'
+
 
 export class Dashboard extends React.Component {
     render() {
         return (
             <div>
                 <h1>Dashboard placeholder</h1>
+                <CurrentWorkoutForm />
+                <PastWorkouts />
                 <button onClick={() => this.props.dispatch(logout())}>Logout</button>
             </div>
         )
