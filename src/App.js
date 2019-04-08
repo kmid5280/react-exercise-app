@@ -5,6 +5,9 @@ import {connect} from 'react-redux'
 import LandingPage from './components/landing-page'
 import Header from './components/header'
 import {refreshAuthToken} from './actions/auth'
+import Dashboard from './components/dashboard'
+import Login from './components/login'
+import Signup from './components/signup'
 
 export class App extends React.Component {
   
@@ -44,6 +47,9 @@ export class App extends React.Component {
           </header>
           <main>
             <Route exact path='/' component={LandingPage} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/dashboard' component={Dashboard} />
           </main>
         </div>
       </Router>
