@@ -20,8 +20,10 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    loggedIn: !!state.auth.currentUser,
     authToken: state.auth.authToken,
     username: state.auth.currentUser ? state.auth.currentUser.username : '',
+    userId: state.auth.currentUser ? state.auth.currentUser.id : ''
 })
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))
