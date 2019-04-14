@@ -6,7 +6,7 @@ import SignupForm from './signup-form'
 
 export function Signup(props) {
     if (props.loggedIn) {
-        return <Redirect to '/board' />
+        return <Redirect to='/board' />
     }
     
     return (
