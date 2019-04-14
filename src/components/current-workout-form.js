@@ -17,18 +17,28 @@ const workoutTypes = [      //sample workout types, will be user defined and pul
     }
 ]
 
-export default function CurrentWorkoutForm() {
+export class CurrentWorkoutForm extends React.Component {
 
-    return (
-        <div>
-            <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-            <Field component='select'>
-                {workoutTypes.map((workout, index) => {
-                    return <option value={workoutTypes[index].exercises}></option>
-                })}
-            </Field>
-            </form>
-        </div>
-    )
+    render() {
+        let error;
+        if (this.props.error) {
+            error = (
+                <div aria-live='polite'>
+                    {this.props.error}
+                </div>
+            )
+        }
+        return (
+            <div>
+                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
+                <Field component='select'>
+                    {workoutTypes.map((workout, index) => {
+                        return <option value={workoutTypes[index].exercises}></option>
+                    })}
+                </Field>
+                </form>
+            </div>
+        )
+    }
     
 }
