@@ -1,4 +1,4 @@
-import {CURRENT_WORKOUT_FORM_SUBMIT} from './actions'
+import {CURRENT_WORKOUT_FORM_SUBMIT, NEW_WORKOUT_TYPE} from './actions'
 
 const initialState = {
     type: '',
@@ -8,7 +8,12 @@ const initialState = {
 export default (state = initialState, action) => {
     if (action.type === CURRENT_WORKOUT_FORM_SUBMIT) {
         return Object.assign({}, state, {
-            type: action.type,
+            
+        })
+    }
+    else if (action.type === NEW_WORKOUT_TYPE) {
+        return Object.assign({}, state, {
+            workoutType: action.workoutType,
             exercises: action.exercises
         })
     }
