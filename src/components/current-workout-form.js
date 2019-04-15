@@ -1,6 +1,7 @@
 import React from 'react'
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form'
 import { connect } from 'react-redux';
+import {currentWorkoutFormSubmit} from '../actions'
 
 const workoutTypes = [      //sample workout types, will be user defined and pulled from database
     {
@@ -18,6 +19,14 @@ const workoutTypes = [      //sample workout types, will be user defined and pul
 ]
 
 export class CurrentWorkoutForm extends React.Component {
+    onSubmit(values) {
+        const {userId, type, exercises} = values
+        return this.props.dispatch(currentWorkoutFormSubmit(values))
+        .catch(err => {
+            console.log({_error: err.errors._error})
+            throw new SubmissionError({_error: err.errors._error})
+        })
+    }
 
     render() {
         let error;
