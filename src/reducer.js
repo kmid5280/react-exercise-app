@@ -11,11 +11,6 @@ export default (state = initialState, action) => {
             
         })
     }
-    else if (action.type === NEW_WORKOUT_TYPE) {
-        return Object.assign({}, state, {
-            workoutType: action.workoutType,
-            exercises: action.exercises
-        })
-    }
+    
     return state
 }
