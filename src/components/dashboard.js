@@ -29,7 +29,8 @@ const mapStateToProps = state => ({
     loggedIn: !!state.auth.currentUser,
     authToken: state.auth.authToken,
     username: state.auth.currentUser ? state.auth.currentUser.username : '',
-    userId: state.auth.currentUser ? state.auth.currentUser.id : ''
+    userId: state.auth.currentUser ? state.auth.currentUser.id : '',
+    workoutTypes: state.auth.currentUser.workoutTypes
 })
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))
