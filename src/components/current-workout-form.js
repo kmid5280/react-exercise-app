@@ -45,6 +45,7 @@ export class CurrentWorkoutForm extends React.Component {
                         return <option value={workoutTypes[index].exercises}></option>
                     })}
                 </Field>
+                <button type="submit">Submit</button>
                 </form>
             </div>
         )
